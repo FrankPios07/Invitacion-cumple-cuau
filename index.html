@@ -83,7 +83,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Te invito a <br> mi cumpleaños</h1>
+    <h1>Te invito a mi<br> Cumpleaños</h1>
 
     <img src="sombrero.png" alt="Sombrero Calentano" class="sombrero">
 
@@ -94,29 +94,20 @@
     </div>
 
     <p class="footer">¡Será un día inolvidable, no faltes!</p>
-    <audio autoplay>
-<source src="cancion.mp3" type="audio/mpeg">
+    <audio id="musica">
+  <source src="cancion.mp3" type="audio/mpeg">
 </audio>
 
-   <script>
-const playSound = function() {
-let element = document.createElement('div');
-element.setAttribute('style', 'display: none');
-element.innerHTML = `
-<audio autoplay loop>
-<source src="cancion.mp3" type="audio/ogg">
-<source src="cancion.mp3" type="audio/mpeg">
-</audio>
-`;
-document.body.appendChild(element);
-document.removeEventListener('click', playSound);
-}
+<script>
+document.addEventListener("click", function() {
+  document.getElementById("musica").play();
+}, { once: true });
+</script>
 
-
-document.addEventListener('click', playSound);
 </div>
 </body>
 </html>
+
 
 
 
