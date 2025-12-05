@@ -1,103 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación de Cumpleaños</title>
 <style>
-body {
-margin: 0;
-padding: 0;
-font-family: 'Poppins', sans-serif;
-background: linear-gradient(135deg, #000000, #1a1a1a);
-animation: fondo 10s infinite alternate;
-overflow-x: hidden;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #000000, #f7e7ce, #1a1a1a);
+        animation: fondo 10s infinite alternate;
+        overflow-x: hidden;
+    }
 
+    @keyframes fondo {
+        0% { background: linear-gradient(135deg, #000000, #f7e7ce, #1a1a1a); }
+        100% { background: linear-gradient(135deg, #1a1a1a, #f7e7ce, #000000); }
+    }
 
-@keyframes fondo {
-0% { background: linear-gradient(135deg, #000000, ); }
-100% { background: linear-gradient(135deg,  #000000); }
-}
+    .container {
+        text-align: center;
+        padding: 40px;
+    }
 
+    h1 {
+        color: #a6764f;
+        font-size: 3rem;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        animation: moverTexto 3s infinite alternate;
+    }
 
-.container {
-text-align: center;
-padding: 40px;
-}
+    @keyframes moverTexto {
+        0% { transform: translateX(-10px); }
+        100% { transform: translateX(10px); }
+    }
 
+    .datos {
+        background: rgba(255,255,255,0.6);
+        border-radius: 20px;
+        padding: 20px;
+        width: 80%;
+        margin: auto;
+        max-width: 600px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+        animation: aparecer 2.5s ease;
+    }
 
-h1 {
-color: #a6764f;
-font-size: 3rem;
-text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-animation: moverTexto 3s infinite alternate;
-}
+    @keyframes aparecer {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+    }
 
+    p {
+        font-size: 1.3rem;
+        color: #705c53;
+        margin: 10px 0;
+    }
 
-@keyframes moverTexto {
-0% { transform: translateX(-10px); }
-100% { transform: translateX(10px); }
-}
+    .sombrero {
+        width: 200px;
+        margin-top: 20px;
+        animation: flotar 4s infinite ease-in-out;
+    }
 
+    @keyframes flotar {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0); }
+    }
 
-.datos {
-
-border-radius: 20px;
-padding: 20px;
-width: 80%;
-margin: auto;
-max-width: 600px;
-box-shadow: 0px 4px 10px #F5F5DC;
-animation: aparecer 2.5s ease;
-}
-
-
-@keyframes aparecer {
-0% { opacity: 0; transform: scale(0.8); }
-100% { opacity: 1; transform: scale(1); }
-}
-
-
-p {
-font-size: 1.3rem;
-color: #F5F5DC;
-margin: 10px 0;
-}
-
-
-.sombrero {
-width: 200px;
-margin-top: 20px;
-animation: flotar 4s infinite ease-in-out;
-}
-
-
-@keyframes flotar {
-0% { transform: translateY(0); }
-50% { transform: translateY(-15px); }
-100% { transform: translateY(0); }
-}
-
-
-.footer {
-margin-top: 30px;
-font-size: 1rem;
-color: #5a4a45;
-}
+    .footer {
+        margin-top: 30px;
+        font-size: 1rem;
+        color: #5a4a45;
+    }
 </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎉 ¡Te Invito a Festejar Mi Cumpleaños ! 🎉</h1>
+        <h1>🎉 ¡Te Invito a Mis 15 Años! 🎉</h1>
         <img src="sombrero.png" alt="Sombrero Calentano" class="sombrero">
 
         <div class="datos">
-            
+            <p><strong>Quinceañera:</strong> Cuau</p>
             <p><strong>Lugar:</strong> Patambo, Guerrero — Domicilio conocido</p>
             <p><strong>Fecha:</strong> 28 de diciembre de 2025</p>
-            <p><strong>Hora:</strong> 14:00 hrs </p>
+            <p><strong>Hora:</strong> 15:00 hrs (3:00 PM)</p>
         </div>
 
-        <p class="footer">¡Será un día inolvidable, no faltes! </p>
-
-        <p>
-        	<audio controls autoplay>
-        	<source autoplay src="cancion.mp3" type="audio/mpeg"> </audio>
+        <p class="footer">¡Será un día inolvidable, no faltes! 💕</p>
+            <img src="sombrero2.jpeg" alt="Sombrero Calentano 2" class="sombrero" style="margin-top:40px;">
     </div>
 </body>
 </html>
+
