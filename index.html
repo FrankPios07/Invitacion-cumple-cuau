@@ -94,13 +94,30 @@
     </div>
 
     <p class="footer">¡Será un día inolvidable, no faltes!</p>
+    <audio autoplay>
+<source src="cancion.mp3" type="audio/mpeg">
+</audio>
 
-    <audio autoplay loop>
-        <source src="cancion.mp3" type="audio/mpeg">
-    </audio>
+   <script>
+const playSound = function() {
+let element = document.createElement('div');
+element.setAttribute('style', 'display: none');
+element.innerHTML = `
+<audio autoplay loop>
+<source src="cancion.mp3" type="audio/ogg">
+<source src="cancion.mp3" type="audio/mpeg">
+</audio>
+`;
+document.body.appendChild(element);
+document.removeEventListener('click', playSound);
+}
+
+
+document.addEventListener('click', playSound);
 </div>
 </body>
 </html>
+
 
 
 
