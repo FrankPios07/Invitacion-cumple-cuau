@@ -1,0 +1,103 @@
+<style>
+body {
+margin: 0;
+padding: 0;
+font-family: 'Poppins', sans-serif;
+background: linear-gradient(135deg, #000000, #1a1a1a);
+animation: fondo 10s infinite alternate;
+overflow-x: hidden;
+}
+
+
+@keyframes fondo {
+0% { background: linear-gradient(135deg, #000000, ); }
+100% { background: linear-gradient(135deg,  #000000); }
+}
+
+
+.container {
+text-align: center;
+padding: 40px;
+}
+
+
+h1 {
+color: #a6764f;
+font-size: 3rem;
+text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+animation: moverTexto 3s infinite alternate;
+}
+
+
+@keyframes moverTexto {
+0% { transform: translateX(-10px); }
+100% { transform: translateX(10px); }
+}
+
+
+.datos {
+
+border-radius: 20px;
+padding: 20px;
+width: 80%;
+margin: auto;
+max-width: 600px;
+box-shadow: 0px 4px 10px #F5F5DC;
+animation: aparecer 2.5s ease;
+}
+
+
+@keyframes aparecer {
+0% { opacity: 0; transform: scale(0.8); }
+100% { opacity: 1; transform: scale(1); }
+}
+
+
+p {
+font-size: 1.3rem;
+color: #F5F5DC;
+margin: 10px 0;
+}
+
+
+.sombrero {
+width: 200px;
+margin-top: 20px;
+animation: flotar 4s infinite ease-in-out;
+}
+
+
+@keyframes flotar {
+0% { transform: translateY(0); }
+50% { transform: translateY(-15px); }
+100% { transform: translateY(0); }
+}
+
+
+.footer {
+margin-top: 30px;
+font-size: 1rem;
+color: #5a4a45;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 ¡Te Invito a Festejar Mi Cumpleaños ! 🎉</h1>
+        <img src="sombrero.png" alt="Sombrero Calentano" class="sombrero">
+
+        <div class="datos">
+            
+            <p><strong>Lugar:</strong> Patambo, Guerrero — Domicilio conocido</p>
+            <p><strong>Fecha:</strong> 28 de diciembre de 2025</p>
+            <p><strong>Hora:</strong> 14:00 hrs </p>
+        </div>
+
+        <p class="footer">¡Será un día inolvidable, no faltes! </p>
+
+        <p>
+        	<audio controls autoplay>
+        	<source autoplay src="cancion.mp3" type="audio/mpeg"> </audio>
+    </div>
+</body>
+</html>
