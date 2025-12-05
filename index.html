@@ -11,8 +11,7 @@
         background: linear-gradient(180deg, #000000, #1a1a1a);
         animation: fondo 10s infinite alternate;
         overflow-x: hidden;
-        writing-mode: vertical-rl; /* Orientación vertical */
-        text-orientation: upright;
+        
     }
 
     @keyframes fondo {
@@ -23,6 +22,11 @@
     .container {
         padding: 40px;
         text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     h1 {
@@ -97,5 +101,7 @@
 </div>
 </body>
 </html>
+
+
 
 
