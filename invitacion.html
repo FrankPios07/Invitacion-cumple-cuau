@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
+    /* ---------------------- FONDO Y ESTILO GENERAL ---------------------- */
     body {
         margin: 0;
         padding: 0;
@@ -16,7 +18,7 @@
 
     @keyframes fondo {
         0% { background: linear-gradient(180deg, #000000, #101010); }
-        100% { background: linear-gradient(180deg, #000000, #1a1a1a); }
+        100% { background: linear-gradient(180deg, #000000, #1d1d1d); }
     }
 
     .container {
@@ -26,32 +28,94 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        animation: entradaEpica 1.8s ease-out forwards;
+        opacity: 0;
+        transform: scale(0.8);
     }
 
+    /* ---------------------- TRANSICIÓN DE ENTRADA ÉPICA ---------------------- */
+    @keyframes entradaEpica {
+        0% {
+            opacity: 0;
+            transform: scale(0.7) translateY(40px);
+            filter: blur(5px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            filter: blur(0);
+        }
+    }
+
+    /* ---------------------- TÍTULO ---------------------- */
     h1 {
         color: #ffffff;
-        font-size: 3.8rem;
-        letter-spacing: 3px;
+        font-size: 4rem;
+        letter-spacing: 4px;
         font-weight: 700;
-        text-shadow: 
-            0 0 10px #ffffff,
-            0 0 20px #d4b48c,
-            0 0 40px #b08961;
+        text-shadow:
+            0 0 15px #ffffff,
+            0 0 25px #d4b48c,
+            0 0 35px #b08961,
+            0 0 50px #8a6b49;
         animation: brillo 3s infinite alternate;
         margin-bottom: 30px;
     }
 
     @keyframes brillo {
         0% { opacity: 0.8; transform: scale(1); }
-        100% { opacity: 1; transform: scale(1.05); }
+        100% { opacity: 1; transform: scale(1.04); }
+    }
+
+    /* ---------------------- VIDEO CON BORDE DORADO ANIMADO ---------------------- */
+    .video-container {
+        position: relative;
+        padding: 10px;
+        border-radius: 25px;
+        animation: bordeDorado 3s infinite linear;
+    }
+
+    /* BORDE ANIMADO */
+    @keyframes bordeDorado {
+        0% {
+            box-shadow: 
+                0 0 10px #c59b6c,
+                0 0 20px #d8b98a inset;
+        }
+        50% {
+            box-shadow: 
+                0 0 22px #e3c79c,
+                0 0 35px #b48c62 inset;
+        }
+        100% {
+            box-shadow: 
+                0 0 10px #c59b6c,
+                0 0 20px #d8b98a inset;
+        }
     }
 
     video {
         width: 90%;
         max-width: 700px;
         border-radius: 20px;
-        box-shadow: 0px 0px 25px #b08961;
-        margin-bottom: 35px;
+        display: block;
+    }
+
+    /* ---------------------- CONFETI ---------------------- */
+    .confeti {
+        position: fixed;
+        top: -10px;
+        width: 10px;
+        height: 10px;
+        background: gold;
+        opacity: 0.8;
+        animation: caer 4s linear infinite;
+        z-index: 1000;
+    }
+
+    @keyframes caer {
+        0% { transform: translateY(0) rotate(0); opacity: 1; }
+        100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
     }
 
 </style>
@@ -62,12 +126,14 @@
 
     <h1>Tu invitación especial</h1>
 
-    <!-- VIDEO AUTOPLAY + LOOP -->
-    <video autoplay loop muted playsinline>
-        <source src="video.mp4" type="video/mp4">
-    </video>
+    <!-- CONTENEDOR CON BORDE DORADO ANIMADO -->
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
 
-    <!-- AUDIO QUE SE REPRODUCE AUTOMÁTICAMENTE -->
+    <!-- AUDIO AUTOMÁTICO -->
     <audio id="musica" autoplay>
         <source src="cancion.mp3" type="audio/mpeg">
     </audio>
@@ -75,19 +141,47 @@
 </div>
 
 <script>
-// Para prevenir bloqueos de autoplay en algunos navegadores
+/* ---------------------- REPRODUCCIÓN DE AUDIO ---------------------- */
 window.addEventListener("load", function() {
-    const music = document.getElementById("musica");
-    music.volume = 1;
+    const musica = document.getElementById("musica");
 
-    // Intento directo
-    music.play().catch(() => {
-        // Si el navegador bloquea autoplay, se reproduce al primer clic
+    musica.play().catch(() => {
         document.addEventListener("click", () => {
-            music.play();
+            musica.play();
         }, { once: true });
     });
 });
+
+/* ---------------------- CONFETI DIGITAL ---------------------- */
+function crearConfeti() {
+    const confeti = document.createElement('div');
+    confeti.classList.add('confeti');
+
+    // Posición horizontal aleatoria
+    confeti.style.left = Math.random() * 100 + 'vw';
+
+    // Tamaño aleatorio
+    const size = Math.random() * 12 + 6;
+    confeti.style.width = size + 'px';
+    confeti.style.height = size + 'px';
+
+    // Color aleatorio entre 3 tonos dorados
+    const colores = ["#d4af37", "#ffd700", "#cfa75a"];
+    confeti.style.background = colores[Math.floor(Math.random() * colores.length)];
+
+    // Duración aleatoria
+    confeti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+
+    document.body.appendChild(confeti);
+
+    // Eliminar confeti al terminar animación
+    setTimeout(() => {
+        confeti.remove();
+    }, 6000);
+}
+
+// Generar confeti cada 120 ms
+setInterval(crearConfeti, 120);
 </script>
 
 </body>
