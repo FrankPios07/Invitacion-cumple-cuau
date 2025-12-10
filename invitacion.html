@@ -54,26 +54,6 @@
         margin-bottom: 35px;
     }
 
-    .btn {
-        padding: 18px 35px;
-        font-size: 1.7rem;
-        border: none;
-        border-radius: 12px;
-        background: linear-gradient(90deg, #a6764f, #c89b74);
-        color: white;
-        cursor: pointer;
-        box-shadow: 
-            0 0 10px #a6764f,
-            0 0 20px #c89b74;
-        transition: 0.3s;
-    }
-
-    .btn:hover {
-        transform: scale(1.12);
-        box-shadow: 
-            0 0 20px #c89b74,
-            0 0 35px #e2c7a7;
-    }
 </style>
 </head>
 <body>
@@ -82,26 +62,34 @@
 
     <h1>Tu invitación especial</h1>
 
-    <!-- VIDEO -->
-    <video id="video" controls>
+    <!-- VIDEO AUTOPLAY + LOOP -->
+    <video autoplay loop muted playsinline>
         <source src="video.mp4" type="video/mp4">
     </video>
 
-    <!-- BOTÓN PARA REPRODUCIR MÚSICA -->
-    <button class="btn" onclick="reproducirMusica()">Reproducir música</button>
-
-    <!-- AUDIO OCULTO -->
-    <audio id="musica">
+    <!-- AUDIO QUE SE REPRODUCE AUTOMÁTICAMENTE -->
+    <audio id="musica" autoplay>
         <source src="cancion.mp3" type="audio/mpeg">
     </audio>
 
 </div>
 
 <script>
-function reproducirMusica() {
-    document.getElementById("musica").play();
-}
+// Para prevenir bloqueos de autoplay en algunos navegadores
+window.addEventListener("load", function() {
+    const music = document.getElementById("musica");
+    music.volume = 1;
+
+    // Intento directo
+    music.play().catch(() => {
+        // Si el navegador bloquea autoplay, se reproduce al primer clic
+        document.addEventListener("click", () => {
+            music.play();
+        }, { once: true });
+    });
+});
 </script>
 
 </body>
 </html>
+
