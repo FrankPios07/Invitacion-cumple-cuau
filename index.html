@@ -11,7 +11,6 @@
         background: linear-gradient(180deg, #000000, #1a1a1a);
         animation: fondo 10s infinite alternate;
         overflow-x: hidden;
-        
     }
 
     @keyframes fondo {
@@ -29,74 +28,76 @@
         align-items: center;
     }
 
+    /* 🎉 Texto súper atractivo */
     h1 {
-        color: #a6764f;
-        font-size: 4rem;
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-        animation: moverTexto 3s infinite alternate;
+        color: #ffffff;
+        font-size: 4.5rem;
+        letter-spacing: 3px;
+        font-weight: 700;
+        text-shadow: 
+            0 0 10px #ffffff,
+            0 0 20px #d4b48c,
+            0 0 40px #b08961;
+        animation: brillo 3s infinite alternate ease-in-out;
+        margin-bottom: 25px;
     }
 
-    @keyframes moverTexto {
-        0% { transform: translateX(-10px); }
-        100% { transform: translateX(10px); }
+    @keyframes brillo {
+        0% { opacity: 0.8; transform: scale(1); }
+        100% { opacity: 1; transform: scale(1.05); }
     }
 
-    .datos {
-        border-radius: 20px;
-        padding: 30px;
-        width: 90%;
-        margin: auto;
-        max-width: 650px;
-        box-shadow: 0px 4px 12px #F5F5DC;
-        animation: aparecer 2.5s ease;
-    }
-
-    @keyframes aparecer {
-        0% { opacity: 0; transform: scale(0.8); }
-        100% { opacity: 1; transform: scale(1); }
-    }
-
-    p {
-        font-size: 2rem;
-        color: #F5F5DC;
-        margin: 15px 0;
-    }
-
+    /* Sombrero con animación flotante */
     .sombrero {
-        width: 220px;
-        margin-top: 20px;
+        width: 250px;
+        margin-top: 5px;
         animation: flotar 4s infinite ease-in-out;
     }
 
     @keyframes flotar {
         0% { transform: translateY(0); }
-        50% { transform: translateY(-15px); }
+        50% { transform: translateY(-18px); }
         100% { transform: translateY(0); }
     }
 
-    .footer {
-        margin-top: 30px;
-        font-size: 1.3rem;
-        color: #5a4a45;
+    /* Botón atractivo */
+    .btn {
+        margin-top: 40px;
+        padding: 18px 35px;
+        font-size: 1.7rem;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(90deg, #a6764f, #c89b74);
+        color: white;
+        cursor: pointer;
+        box-shadow: 
+            0 0 10px #a6764f,
+            0 0 20px #c89b74;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        transform: scale(1.12);
+        box-shadow: 
+            0 0 20px #c89b74,
+            0 0 35px #e2c7a7;
     }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>Te invito a mi<br> Cumpleaños</h1>
 
-    <img src="sombrero.png" alt="Sombrero Calentano" class="sombrero">
+    <h1>Te invito<br>a mi cumpleaños<br><br><br>Cuau</h1>
 
-    <div class="datos">
-        <p><strong>Lugar:</strong> Patambo, Guerrero — Domicilio conocido</p>
-        <p><strong>Fecha:</strong> 28 de diciembre de 2025</p>
-        <p><strong>Hora:</strong> 14:00 hrs</p>
-    </div>
+    <img src="sombrero.png" alt="Sombrero" class="sombrero">
 
-    <p class="footer">¡Será un día inolvidable, no faltes!</p>
+    <button class="btn" onclick="location.href='invitacion.html'">Ver invitación</button>
+
     <audio id="musica">
-  <source src="cancion.mp3" type="audio/mpeg">
-</audio>
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
 
 <script>
 document.addEventListener("click", function() {
@@ -104,9 +105,10 @@ document.addEventListener("click", function() {
 }, { once: true });
 </script>
 
-</div>
 </body>
 </html>
+
+
 
 
 
